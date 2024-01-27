@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./logo/photo.png">
+    <title>Wecan Calculator</title>
+</head>
+<body>
+    <header class="logoContainer">
+        <div class="logo">
+            <a href="index.html">
+                <img 
+                class="logoImage" 
+                src="./logo/photo.png" 
+                alt="Wecan Logo"
+                >
+            </a>
+        </div>
+    </header>
+    <main class="container">
+        <div class="calculator">
+            <div class="button" id="one">1</div>
+            <div class="button" id="two">2</div>
+            <div class="button" id="three">3</div>
+            <div class="button" id="four">4</div>
+            <div class="button" id="five">5</div>
+            <div class="button" id="six">6</div>
+            <div class="button" id="seven">7</div>
+            <div class="button" id="eight">8</div>
+            <div class="button" id="nine">9</div>
+            <div class="button" id="zero">0</div>
+            <div class="button" id="plus">+</div>
+            <div class="button" id="minus">-</div>
+            <div class="button" id="mult">*</div>
+            <div class="button" id="div">/</div>
+            <div class="button" id="eq">=</div>
+            <div class="button" id="clear">clear</div>
+            <div class="button" id="generate">gen</div>
+            <div class="button" id="erase">erase</div>
+            <div class="button" id="rightParenthese">(</div>
+            <div class="button" id="leftParenthese">)</div>
+        </div>
+    </main>
+    <div class="containerResult">
+        <div class="result" id="res"></div>
+    </div>
+    <script>
+        let operation = "";
+
+        //#region ADDITIONAL BUTTONS
+        const clearElement = document.getElementById('clear');
+        const generateElement = document.getElementById('generate');
+        const eraseElement = document.getElementById('erase');
+        const rightParentheseElement = document.getElementById('rightParenthese');
+        const leftParentheseElement = document.getElementById('leftParenthese');
+        //#endregion
+        
+        //#region OPERATIONS BUTTONS
+        const result = document.getElementById('res');
+        const plusButton = document.getElementById('plus');
+        const minusButton = document.getElementById('minus');
+        const multiplicationButton = document.getElementById('mult');
+        const divisionButton = document.getElementById('div');
+        const equalButton = document.getElementById('eq');
+        //#endregion
+
+        //#region NUMBERS BUTTONS
+        const oneButton = document.getElementById('one');
+        const twoButton = document.getElementById('two');
+        const threeButton = document.getElementById('three');
+        const fourButton = document.getElementById('four');
+        const fiveButton = document.getElementById('five');
+        const sixButton = document.getElementById('six');
+        const sevenButton = document.getElementById('seven');
+        const eightButton = document.getElementById('eight');
+        const nineButton = document.getElementById('nine');
+        const zeroButton = document.getElementById('zero');
+        //#endregion
+
+        //#region ADDITIONAL FUNCTIONS
+        clearElement.addEventListener('click', () => {
+            operation = "";
+            result.textContent = operation;
+        });
+
+        generateElement.addEventListener('click', () => {
+            const operators = ['+', '-', '*', '/'];
+            const randomFirstNum = Math.floor(Math.random() * 10000) + 1;
+            const randomSecondNum = Math.floor(Math.random() * 10000) + 1;
+            const operationForExpr = operators[Math.floor(Math.random() * operators.length)];
+            operation = `${randomFirstNum}${operationForExpr}${randomSecondNum}`;
+            result.textContent = operation;
+        });
+
+        eraseElement.addEventListener('click', () => {
+            operation = operation.substring(0, operation.length - 1);
+            result.textContent = operation;
+        });
+
+        rightParentheseElement.addEventListener('click', () => {
+            operation += '(';
+            result.textContent = operation;
+        });
+
+        leftParentheseElement.addEventListener('click', () => {
+            operation += ')';
+            result.textContent = operation;
+        });
+        //#endregion
+
+        //#region NUMBERS FUNCTIONS
+        oneButton.addEventListener('click', () => {
+            const check = addingIsPossible();
+            if (!check) {
+                return;
+            }
+            operation += '1';
+            result.textContent = operation;
+        });
+
+        twoButton.addEventListener('click', () => {
+            const check = addingIsPossible();
+            if (!check) {
+                return;
+            }
+            operation += '2';
+            result.textContent = operation;
+        });
+
+        threeButton.addEventListener('click', () => {
+            const check = addingIsPossible();
+            if (!check) {
+                return;
+            }
+            operation += '3';
+            result.textContent = operation;
+        });
+
+        fourButton.addEventListener('click', () => {
+            const check = addingIsPossible();
+            if (!check) {
+                return;
+            }
+            operation += '4';
+            result.textContent = operation;
+        });
+
+        fiveButton.addEventListener('click', () => {
+            const check = addingIsPossible();
+            if (!check) {
+                return;
+            }
+            operation += '5';
+            result.textContent = operation;
+        });
+
+        sixButton.addEventListener('click', () => {
+            const check = addingIsPossible();
+            if (!check) {
+                return;
+            }
+            operation += '6';
+            result.textContent = operation;
+        });
+
+        sevenButton.addEventListener('click', () => {
+            const check = addingIsPossible();
+            if (!check) {
+                return;
+            }
+            operation += '7';
+            result.textContent = operation;
+        });
+
+        eightButton.addEventListener('click', () => {
+            const check = addingIsPossible();
+            if (!check) {
+                return;
+            }
+            operation += '8';
+            result.textContent = operation;
+        });
+
+        nineButton.addEventListener('click', () => {
+            const check = addingIsPossible();
+            if (!check) {
+                return;
+            }
+            operation += '9';
+            result.textContent = operation;
+        });
+
+        zeroButton.addEventListener('click', () => {
+            const check = addingIsPossible();
+            if (!check) {
+                return;
+            }
+            operation += '0';
+            result.textContent = operation;
+        });
+        //#endregion
+
+        //#region OPERATIONS FUNCTIONS
+        plusButton.addEventListener('click', () => {
+            const check = addingIsPossible();
+            if (!check) {
+                return;
+            }
+            operation += checkOperationIsPossible('+');
+            result.textContent = operation;
+        });
+
+        minusButton.addEventListener('click', () => {
+            const check = addingIsPossible();
+            if (!check) {
+                return;
+            }
+            operation += checkOperationIsPossible('-');
+            result.textContent = operation;
+        });
+
+        multiplicationButton.addEventListener('click', () => {
+            const check = addingIsPossible();
+            if (!check) {
+                return;
+            }
+            operation += checkOperationIsPossible('*');
+            result.textContent = operation;
+        });
+
+        divisionButton.addEventListener('click', () => {
+            const check = addingIsPossible();
+            if (!check) {
+                return;
+            }
+            operation += checkOperationIsPossible('/');
+            result.textContent = operation;
+        });
+
+        equalButton.addEventListener('click', () => {
+            operation = eval(operation);
+            result.textContent = operation;
+        });
+        //#endregion
+
+        //#region HELPFUL FUNCTIONS
+        function checkOperationIsPossible(symbol) {
+            let operand;
+            if (operation.length !== 0) {
+                operand = parseInt(operation[operation.length - 1]);
+                if (operation[operation.length - 1] === '(' || operation[operation.length - 1] === ')') {
+                    return symbol;
+                }
+                if (isNaN(operand)) {
+                return '';
+            }
+            } else {
+                return '';
+            }
+            return symbol;
+        }
+
+        function addingIsPossible() {
+            return operation.length <= 25;
+        }
+        //#endregion
+    </script>
+</body>
+</html>

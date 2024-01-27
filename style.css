@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    background-color: goldenrod;
+    width: 390px;
+}
+
+.logoImage {
+    height: 100px;
+    transform: scale(1.0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.logoImage:hover {
+    transform: scale(1.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: 350px;
+    width: 350px;
+    background-color: goldenrod;
+}
+
+.containerResult {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin: 0 auto;
+    width: 350px;
+    padding: 20px;
+    background-color: goldenrod;
+}
+
+.result {
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    width: 300px;
+    background-color: aliceblue;
+    border-radius: 50px;
+    line-height: 50px;
+}
+
+.button {
+    width: 70px;
+    color: rgb(32, 30, 30);
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    border: 2px solid beige;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: gold;
+    transition: background-color 0.2s linear;
+}
+
+#eq {
+    background-color: blue;
+    color: white;
+}
+
+#eq:hover {
+    background-color: rgb(49, 49, 255);
+}
